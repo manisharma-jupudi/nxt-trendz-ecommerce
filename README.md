@@ -1,183 +1,276 @@
-In this project, let's build a **Nxt Trendz - Cart Features** by applying the concepts we have learned till now.
+# 🛍️ Nxt Trendz – E-Commerce Shopping Application
 
-### Refer to the video below:
+A React-based e-commerce shopping application that provides a seamless online shopping experience with secure authentication, product browsing, filtering, product details, and comprehensive shopping cart management.
 
-<br/>
-<div style="text-align: center;">
-  <video style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12);outline:none;" loop="true" autoplay="autoplay" controls="controls" muted>
-    <source src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-output.mp4" type="video/mp4">
-  </video>
-</div>
-<br/>
+## 🌐 Live Demo
 
-### Design Files
+**[Visit Nxt Trendz – Live Application](https://manir041.ccbp.tech)**
 
-<details>
-<summary>Click to view</summary>
+## 📌 Project Overview
 
-- [Extra Small (Size < 576px) and Small (Size >= 576px)](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-sm-output-v0.png)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-lg-output.png)
+Nxt Trendz is a modern e-commerce shopping application developed using React.js. It enables users to authenticate securely, explore products, search and filter items, view product details, discover similar products, and manage their shopping cart.
 
-</details>
+The application uses React Router for navigation, Context API for centralized cart state management, JS Cookies for authentication, and external REST APIs for backend data integration.
 
-### Set Up Instructions
+The project focuses on delivering a responsive and user-friendly shopping experience with features such as product sorting, category filtering, rating filters, quantity management, and cart summaries.
 
-<details>
-<summary>Click to view</summary>
+## ✨ Features
 
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
-</details>
+### 🔐 User Authentication
 
-### Completion Instructions
+- User login and logout functionality.
+- JWT-based authentication.
+- Authentication token storage using JS Cookies.
+- Protected routes for authenticated users.
+- Automatic redirection to the login page when authentication is missing.
+- JWT token included in protected API request headers.
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
+### 🛍️ Product Browsing
 
-The app must have the following functionalities
+- Display a collection of products.
+- Search products by name.
+- Filter products by category.
+- Filter products based on customer ratings.
+- Sort products using available sorting criteria.
+- View detailed information about individual products.
+- Explore similar products.
+- Browse Prime Deals.
 
-- When an unauthenticated user tries to access the **Cart** Route, then the page should be navigated to **Login** Route
+### 🛒 Shopping Cart Management
 
-- Following are the features to be implemented
+- Add products to the shopping cart.
+- Manage cart state globally using React Context API.
+- Increase or decrease product quantities.
+- Remove individual products from the cart.
+- Remove all products from the cart.
+- Automatically update item quantities and total prices.
+- Display a cart summary.
 
-  - Feature 1
+### 🎨 User Interface
 
-    - When an authenticated user tries to add the same product multiple times
-      - The quantity of the product should be updated accordingly, and the count of the cart items in the header should be remained same
+- Responsive user interface.
+- Client-side navigation using React Router.
+- Loading indicators using React Loader Spinner.
+- Interactive icons using React Icons.
+- CSS-based styling.
 
-  - Feature 2
+## 🛠️ Technology Stack
 
-    - The total amount and number of items in the cart should be displayed in the **Cart** Route
+| Technology             | Purpose                       |
+| ---------------------- | ----------------------------- |
+| React.js 17            | Building the user interface   |
+| React Router DOM 5.2.0 | Client-side routing           |
+| React Context API      | Global cart state management  |
+| JS Cookies             | Authentication token storage  |
+| Fetch API              | Backend REST API integration  |
+| React Icons            | UI icons                      |
+| React Loader Spinner   | Loading indicators            |
+| CSS                    | Styling and responsive design |
+| Create React App       | Development environment       |
+| Jest                   | Testing                       |
+| ESLint                 | Code quality                  |
 
-  - Feature 3
+## 🔌 API Endpoints Overview
 
-    - In each cart item in the cart
-      - When the plus icon is clicked, then the quantity of the product should be incremented by one
-      - When the minus icon is clicked, then the quantity of the product should be decremented by one
-      - When the quantity of the product is one and the minus icon is clicked, then the respective product should be removed from the cart
-      - Based on the quantity of the product, the product price and the Cart Summary, i.e the total cost should be updated accordingly
+The application integrates with external REST APIs to handle authentication and retrieve product information.
 
-  - Feature 4
+| API                 | Component                                    | Functionality                                                                 |
+| ------------------- | -------------------------------------------- | ----------------------------------------------------------------------------- |
+| Login API           | `src/components/LoginForm/index.js`          | Authenticates users and returns a JWT token                                   |
+| Products API        | `src/components/AllProductsSection/index.js` | Retrieves products and supports search, category, rating, and sorting filters |
+| Product Details API | `src/components/ProductItemDetails/index.js` | Retrieves individual product details and similar products                     |
+| Prime Deals API     | `src/components/PrimeDealsSection/index.js`  | Retrieves Prime Deals products                                                |
 
-    - When an authenticated user clicks on the remove button, cart item should be removed from the cart list
+### API Integration
 
-  - Feature 5
+- Backend communication is performed using the Fetch API.
+- The Login API authenticates users and returns a JWT token.
+- The authentication token is stored in cookies.
+- Protected API requests include the JWT token in their request headers.
+- Product listing APIs support filtering and sorting.
+- Product Details APIs retrieve individual product information and similar products.
 
-    - When an authenticated user clicks on the **Remove All** button, all the cart items should be removed from the cart and [Empty Cart View](https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-empty-cart-view.png) should be displayed
+## 🔐 Authentication Flow
 
-- The `CartContext` has an object as a value with the following properties
-  - `cartList` - this key stores the cart items
-  - `removeAllCartItems` - this method is used to remove all the cart items in the `cartList`
-  - `addCartItem` - this method adds the cart item to the `cartList`
-  - `removeCartItem` - this method removes the cart item from the `cartList`
-  - `incrementCartItemQuantity` - this method increases the quantity of a product in the `cartList`
-  - `decrementCartItemQuantity` - this method decreases the quantity of a product in the `cartList`
+The application implements JWT-based authentication with protected routes.
 
-</details>
+```mermaid
+flowchart TD
+    A[User Opens Application] --> B{JWT Token Exists?}
+    B -->|No| C[Login Page]
+    B -->|Yes| D[Protected Route]
+    C --> E[Enter Credentials]
+    E --> F[Login API]
+    F --> G{Authentication Successful?}
+    G -->|No| C
+    G -->|Yes| H[Store JWT in Cookies]
+    H --> D
+    D --> I[Access Protected Pages]
+    I --> J[Logout]
+    J --> K[Remove JWT Cookie]
+    K --> C
+```
 
-<details>
-<summary>Components Structure</summary>
+### Authentication Process
 
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/nxt-trendz-cart-features-component-structure-breakdown.png" alt="component structure breakdown" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
+1. The user enters credentials through the Login page.
+2. The Login API validates the credentials.
+3. On successful authentication, the API returns a JWT token.
+4. The token is stored in cookies using JS Cookies.
+5. The Protected Route component checks for the authentication token.
+6. If the token is available, the user can access protected pages.
+7. If the token is missing, the user is redirected to the Login page.
+8. During logout, the token is removed and the user is redirected to Login.
 
-</details>
+## 🔑 Demo Credentials
 
-<details>
-<summary>Implementation Files</summary>
-<br/>
+The application provides demo accounts for both Prime and Non-Prime users.
 
-Use these files to complete the implementation:
+### Prime User
 
-- `src/App.js`
-- `src/components/Cart/index.js`
-- `src/components/Cart/index.css`
-- `src/components/CartItem/index.js`
-- `src/components/CartItem/index.css`
-- `src/components/CartSummary/index.js`
-- `src/components/CartSummary/index.css`
-</details>
+| Field    | Value        |
+| -------- | ------------ |
+| Username | `rahul`      |
+| Password | `rahul@2021` |
 
-### Quick Tips
+### Non-Prime User
 
-<details>
-<summary>Click to view</summary>
-<br>
+| Field    | Value       |
+| -------- | ----------- |
+| Username | `raja`      |
+| Password | `raja@2021` |
 
-- The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text
+**Note:** These credentials are provided for demonstration and testing purposes only.
 
-  ```
-  line-height: 1.5;
-  ```
+## 🛒 Cart State Management
 
-    <br/>
-    <img src="https://assets.ccbp.in/frontend/react-js/line-height-img.png" alt="line height" style="width:90%; max-width: 600px;"/>
+The application uses React Context API to maintain cart state across multiple components.
 
-- The array method `find()` returns the first item's value that satisfies the provided testing function. If no item is found, it returns `undefined`
+The cart context is implemented in:
 
-  **Syntax**: `arr.find(Testing Function)`
+`src/context/CartContext.js`
 
-</details>
+### Cart Operations
 
-### Important Note
+- Add items to the cart.
+- Update product quantities.
+- Remove individual cart items.
+- Clear the entire cart.
+- Calculate total item quantities.
+- Calculate the total cart price.
 
-<details>
-<summary>Click to view</summary>
+This centralized state management approach allows different components to access and update cart information without extensive prop drilling.
 
-<br/>
+## 📂 Project Structure
 
-**The following instructions are required for the tests to pass**
+```text
+nxt-trendz-cart-features/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── LoginForm/
+│   │   ├── ProtectedRoute/
+│   │   ├── AllProductsSection/
+│   │   ├── ProductItemDetails/
+│   │   ├── PrimeDealsSection/
+│   │   └── ...
+│   │
+│   ├── context/
+│   │   └── CartContext.js
+│   │
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+│
+├── package.json
+├── package-lock.json
+├── LICENSE
+└── README.md
+```
 
-- `BsPlusSquare`, `BsDashSquare` icons from `react-icons` should be used for **plus** and **minus** buttons in cart item
-- The Cart Item should consist of two HTML button elements with data-testid attribute values as **plus** and **minus** respectively
-- `AiFillCloseCircle` icon from react-icons should be used for **remove** button in cartItem
-- The Cart Item should consist of an HTML button element with data-testid attribute values as **remove**
-- The product image in **Cart Item** Route should have the alt as `title` of the product
+*Note: This structure highlights the major components and files. Additional components and files may exist in the project.*
 
-- Prime User credentials
+## 🚀 Installation and Setup
 
-  ```text
-   username: rahul
-   password: rahul@2021
-  ```
+### Prerequisites
 
-- Non-Prime User credentials
+Ensure that the following software is installed:
 
-  ```text
-   username: raja
-   password: raja@2021
-  ```
+- Node.js
+- npm
+- Git
 
-</details>
+### Step 1: Clone the Repository
 
-### Resources
+```bash
+git clone <your-repository-url>
+```
 
-<details>
-<summary>Colors</summary>
+### Step 2: Navigate to the Project Directory
 
-<br/>
+```bash
+cd nxt-trendz-cart-features
+```
 
-<div style="background-color: #0b69ff; width: 150px; padding: 10px; color: white">Hex: #0b69ff</div>
-<div style="background-color: #171f46; width: 150px; padding: 10px; color: white">Hex: #171f46</div>
-<div style="background-color: #616e7c; width: 150px; padding: 10px; color: white">Hex: #616e7c</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
+### Step 3: Install Dependencies
 
-</details>
+```bash
+npm install
+```
 
-<details>
-<summary>Font-families</summary>
+This command installs the dependencies specified in `package.json`.
 
-- Roboto
+### Step 4: Start the Development Server
 
-</details>
+```bash
+npm start
+```
 
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
+The application will start using Create React App.
+
+Open your browser and navigate to:
+
+**[http://localhost:3000](http://localhost:3000)**
+
+## 📜 Available Scripts
+
+The following scripts are available in `package.json`:
+
+| Command            | Description                                  |
+| ------------------ | -------------------------------------------- |
+| `npm start`        | Starts the development server                |
+| `npm run build`    | Creates a production build                   |
+| `npm test`         | Runs the test suite                          |
+| `npm run lint`     | Runs ESLint                                  |
+| `npm run lint:fix` | Fixes linting issues in the source directory |
+| `npm run format`   | Formats source files using Prettier          |
+| `npm run run-all`  | Runs tests and linting tasks in parallel     |
+
+## 🔮 Future Enhancements
+
+The following features can be added to improve the application:
+
+- **Wishlist Functionality:** Allow users to save their favorite products.
+- **User Profile Management:** Enable users to manage their personal information.
+- **Payment Gateway Integration:** Support secure online payments.
+- **Order History:** Allow users to view previous orders.
+- **Product Reviews and Ratings:** Enable customers to review products.
+- **Dark Mode:** Introduce a dark theme for improved accessibility.
+- **Product Recommendations:** Suggest products based on user preferences.
+- **Advanced Filtering:** Add additional product filtering options.
+- **Pagination:** Improve product browsing for large product collections.
+- **Persistent Cart Storage:** Integrate backend database storage to preserve cart information across sessions and devices.
+
+## 👨‍💻 Author
+
+**Manisharma Jupudi**
+
+GitHub: [Manisharma Jupudi](https://github.com/manisharma-jupudi/nxt-trendz-ecommerce)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+You are free to use, modify, and distribute this software in accordance with the terms of the MIT License.
